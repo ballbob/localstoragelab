@@ -10,10 +10,14 @@ var init = function(){
 
 var populate = function(list, state){
   //for each item in the state, invoke addItem
+  state.forEach(function(item){
+    this.addItem(list,item)
+  })
 }
 
 var addItem = function(list, item){
   //add an item to the list
+
 }
 
 var handleClick = function(){
