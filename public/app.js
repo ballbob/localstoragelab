@@ -1,3 +1,5 @@
+var taskList = [];
+
 var init = function(){
   var state = JSON.parse(localStorage.getItem('todoList')) || [];
   var list = document.querySelector('#todo-list');
@@ -28,14 +30,18 @@ var handleClick = function(){
   //get the "todo-list" element from the DOM
   var tdl = document.querySelector('#todo-list')
   //invoke addItem
-  addItem(tdl,item)
+  addItem(tdl,input)
   //invoke save
-  save(item)
+  save(input)
 }
 
 var save = function(item){
+  taskList.push( item.value );
   //save the item to localStorage 
+  var tasklistJson = JSON.stringify(taskList)
+  localStorage.setItem( "tasklist" , tasklistJson );
   //NOTE You'll have to use JSON.stringify
+
 }
 
 window.onload = init;
