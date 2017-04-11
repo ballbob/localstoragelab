@@ -1,6 +1,5 @@
-
-
 var init = function(){
+  var stateArray = []
   var state = JSON.parse(localStorage.getItem('todoList')) || [];
   var list = document.querySelector('#todo-list');
   var button = document.querySelector('button');
