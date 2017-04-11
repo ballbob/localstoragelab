@@ -1,4 +1,4 @@
-var taskList = [];
+
 
 var init = function(){
   var state = JSON.parse(localStorage.getItem('todoList')) || [];
@@ -19,8 +19,9 @@ var populate = function(list, state){
 
 var addItem = function(list, item){
   //add an item to the list
-var newLi = document.createElement("li");
-newLi.innerText = item.value;
+  var newLi = document.createElement("li");
+  newLi.innerText = item;
+  list.appendChild(newLi)
 }
 
 var handleClick = function(){
@@ -36,10 +37,11 @@ var handleClick = function(){
 }
 
 var save = function(item){
-  taskList.push( item.value );
+  var state = JSON.parse(localStorage.getItem('todoList')) || [];
+  state.push( item.value );
   //save the item to localStorage 
-  var tasklistJson = JSON.stringify(taskList)
-  localStorage.setItem( "tasklist" , tasklistJson );
+  var stateJson = JSON.stringify(state)
+  localStorage.setItem( "todoList" , stateJson );
   //NOTE You'll have to use JSON.stringify
 
 }
@@ -47,4 +49,5 @@ var save = function(item){
 window.onload = init;
 
 //ADVANCED: create a drop-down of many to-do lists that are stored in localStorage
+
 //HINT: you'll have to use a different data structure (an array of objects maybe?)
