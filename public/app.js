@@ -17,14 +17,20 @@ var populate = function(list, state){
 
 var addItem = function(list, item){
   //add an item to the list
-
+var newLi = document.createElement("li");
+newLi.innerText = item.value;
 }
 
 var handleClick = function(){
   //get the value of the input box
+  var input = document.querySelector('#new-item')
+
   //get the "todo-list" element from the DOM
+  var tdl = document.querySelector('#todo-list')
   //invoke addItem
+  addItem(tdl,item)
   //invoke save
+  save(item)
 }
 
 var save = function(item){
